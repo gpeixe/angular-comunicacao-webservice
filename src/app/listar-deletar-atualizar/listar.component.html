@@ -1,0 +1,33 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Preço</td>
+                <td>Descrição</td>
+                <td>Título</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of listaProdutos">
+                <td>{{p.price}}</td>
+                <td>{{p.description}}</td>
+                <td>{{p.title}}</td>
+                <td><button (click)="deletarProduto(p)">Deletar</button></td>
+                <td><button (click)="mostrarAtualizarProduto(p)">Atualizar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="produtoParaAtualizar.produto">
+    <h2>Atualizar Produto</h2>
+    <label>Título
+        <input [(ngModel)]="produtoParaAtualizar.produto.title" placeholder="Título">
+    </label>
+    <label>Preço
+        <input [(ngModel)]="produtoParaAtualizar.produto.price" placeholder="Preço">
+    </label>
+    <label>Descrição
+        <textarea [(ngModel)]="produtoParaAtualizar.produto.description" placeholder="Descrição"></textarea>
+    </label>
+    <button (click)="atualizarProduto(produtoAtualizado)">Atualizar produto</button>
+</div>
